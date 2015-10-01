@@ -4,9 +4,9 @@ import csv
 from pymongo import MongoClient
 
 #Maro
-client = MongoClient('103.49.44.44',27017)
+#client = MongoClient('103.49.44.44',27017)
 #local
-#client = MongoClient()
+client = MongoClient()
 #Hwi
 #client = MongoClient('52.69.236.246',27017)
 db = client.snack
