@@ -20,9 +20,9 @@ def main():
     with open('nongsim.csv','r') as csvFile:
         reader = csv.reader(csvFile)
         for row in csv.reader(csvFile):
-            nut_cont = listToIngDic(deliToList(row[2]))
+            ing_cont = listToIngDic(deliToList(row[2]))
             #data = {"snack_name" :row[1].decode('utf-8').encode('utf-8')}
-            postsData={"snack_name" :row[1],"manufacturer":"농심","nutrition": nut_cont,"ingredient":makeNutrition(row), "avr_grade":None, "comments": []}
+            postsData={"snack_name" :row[1],"manufacturer":"농심","nutrition": makeNutrition(row),"ingredient":ing_cont, "avr_grade":None, "comments": []}
             mainData={"manufacturer":"농심","snack_name":row[1], "avr_grade":None}
             userData = {"email": None, "password": None, "phone_number": None, "intruduction" : None, "nickname": None, "join_date":None, "Comments":None}
             commentsData = {"by":{"id": None, "nickname": None}, "text": None, "grade": None, "c_timestamp": None, "snack_name": None }
@@ -50,7 +50,7 @@ def listToIngDic(lists):
 def makeNutrition(lst):
     lists=[]
 
-    lists.append({"열량)": lst[6]})
+    lists.append({"열량": lst[6]})
     lists.append({ "탄수화물": lst[7]})
     lists.append({"단백질": lst[8]})
     lists.append({"지방": lst[9]})
